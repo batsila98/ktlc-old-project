@@ -1,0 +1,37 @@
+.pageSingle {
+
+    &__content {
+        padding: 0 0 60px 0;
+    }
+
+    &__nav {
+
+        .navigation {
+
+            .nav-links {
+                @include flex(row, center, space-between, wrap);
+
+                a {
+                    color: var(--mainColor);
+                    text-transform: uppercase;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: var(--mainColor);
+                    }
+                }
+            }
+        }
+    }
+
+    &__commmentArea {
+        margin-top: 60px;
+    }
+
+    @media screen and (max-width: 992px) {
+
+        &__commmentArea {
+            margin-top: 40px;
+        } 
+    }
+}

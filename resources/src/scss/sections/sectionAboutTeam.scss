@@ -1,0 +1,127 @@
+.sectionAboutTeam {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 120px 0;
+    position: relative;
+
+    &::after {
+        background-color: rgb(0 0 0 / 40%);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+    }
+
+    &__inner {
+        @include flex(row, flex-start, space-between, wrap);
+
+        position: relative;
+        z-index: 1;
+    }
+
+    &__content {
+        @include flex(row, flex-start, flex-start, wrap, 40px);
+
+        flex-basis: 46%;
+    }
+
+    &__title {
+        color: #fff;
+        font-size: calc(32px + (46 - 32) * ((100vw - 320px) / (1920 - 320)));
+        font-weight: 500;
+        margin: 0;
+        width: 100%;
+    }
+
+    &__text {
+        color: #fff;
+        font-size: 20px;
+        line-height: 200%;
+        margin: 0;
+        width: 100%;
+
+        p {
+            margin: 0;
+        }
+
+        a {
+            color: var(--mainColor);
+            text-decoration: underline;
+        }
+    }
+
+    &__formWrapper {
+        background-color: #fff;
+        border-radius: 30px;
+        flex-basis: 46%;
+        padding: 80px 40px 40px 40px;
+        position: relative;
+    }
+
+    &__formTitle {
+        background-color: var(--mainColor);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px 0 rgb(0 0 0 / 10%);
+        color: #fff;
+        font-weight: 400;
+        left: 50%;
+        margin: 0;
+        padding: 20px;
+        position: absolute;
+        text-align: center;
+        top: -40px;
+        transform: translate(-50%, 0);
+        width: 70%;
+    }
+
+    @media screen and (max-width: 1440px) {
+        padding: 60px 0;
+
+        &__text {
+            font-size: 16px;
+        }
+
+        &__formWrapper {
+            padding: 40px;
+        }
+
+        &__formTitle {
+            padding: 10px;
+            top: -30px;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+
+        &__inner {
+            gap: 60px;
+        }
+
+        &__content {
+            flex-basis: 100%;
+            gap: 20px;
+        }
+
+        &__title {
+            font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1920 - 320)));
+        }
+
+        &__formWrapper {
+            flex-basis: 100%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        &__formWrapper {
+            padding: 40px 20px 20px 20px;
+        }
+    }
+}

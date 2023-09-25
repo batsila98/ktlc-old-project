@@ -1,0 +1,221 @@
+.commentForm {
+    background: linear-gradient(145deg,#efefef,#fff);
+    border-radius: 20px;
+    box-shadow: 20px 20px 40px #efefef, -20px -20px 40px #fff;
+    margin: 0;
+    padding: 40px;
+
+    &__title {
+        @include flex(row, center, space-between, wrap);
+
+        font-weight: 500;
+        margin: 0 0 20px 0;
+
+        small {
+            font-size: 20px;
+
+            a {
+                color: #fff;
+                background-color: var(--mainColor);
+                border: 2px solid var(--mainColor);
+                border-radius: 30px;
+                font-weight: normal;
+                padding: 10px 20px;
+                transition: box-shadow 0.3s, background-color 0.3s, color 0.3s;
+
+                &:hover {
+                    background-color: transparent;
+                    box-shadow: 0 10px 20px 0 rgb(0 0 0 / 10%);
+                    color: var(--mainColor);
+                }
+
+                &:active {
+                    background-color: var(--mainColor);
+                    box-shadow: 0 6px 14px 0 rgb(0 0 0 / 14%);
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    &__form {
+        @include flex(row, flex-start, space-between, wrap, 30px);
+        
+        .comment-notes {
+            margin: 0 0 20px 0;
+            flex-basis: 100%;
+        }
+
+        .comment-form-author {
+            @include flex(column, flex-start, flex-start, wrap, 10px);
+
+            margin: 0;
+            flex-basis: 30%;
+
+            input {
+                background-color: transparent;
+                border: none;
+                border-bottom: 2px solid $color-grey-medium;
+                border-radius: 0;
+                outline: none;
+                padding: 0 0 4px 0;
+                width: 100%;
+                transition: border 0.3s;
+
+                &:focus {
+                    border-color: var(--mainColor);
+                }
+            }
+        }
+
+        .comment-form-email {
+            @include flex(column, flex-start, flex-start, wrap, 10px);
+
+            margin: 0;
+            flex-basis: 30%;
+
+            input {
+                background-color: transparent;
+                border: none;
+                border-bottom: 2px solid $color-grey-medium;
+                border-radius: 0;
+                outline: none;
+                padding: 0 0 4px 0;
+                width: 100%;
+                transition: border 0.3s;
+
+                &:focus {
+                    border-color: var(--mainColor);
+                }
+            }
+        }
+
+        .comment-form-url {
+            @include flex(column, flex-start, flex-start, wrap, 10px);
+
+            margin: 0;
+            flex-basis: 30%;
+
+            input {
+                background-color: transparent;
+                border: none;
+                border-bottom: 2px solid $color-grey-medium;
+                border-radius: 0;
+                outline: none;
+                padding: 0 0 4px 0;
+                width: 100%;
+                transition: border 0.3s;
+
+                &:focus {
+                    border-color: var(--mainColor);
+                }
+            }
+        }
+
+        .comment-form-comment {
+            margin: 0;
+            flex-basis: 100%;
+
+            textarea {
+                background-color: transparent;
+                border: none;
+                border-bottom: 2px solid $color-grey-medium;
+                border-radius: 0;
+                outline: none;
+                padding: 0 0 4px 0;
+                resize: none;
+                width: 100%;
+                transition: border 0.3s;
+
+                &:focus {
+                    border-color: var(--mainColor);
+                }
+            }
+        }
+
+        .comment-form-cookies-consent {
+            @include flex(row, center, flex-start, nowrap, 10px);
+
+            margin: 0;
+            flex-basis: 100%;
+
+            input {
+                height: 20px;
+                width: 20px;
+            }
+        }
+
+        .form-submit {
+            margin: 0;
+
+            input {
+                
+                &:hover {
+                    border-color: var(--mainColor);
+                    color: var(--mainColor);
+                }
+
+                &:active {
+                    border-color: var(--mainColor);
+                    color: #fff;
+                }
+            }
+        }
+
+        .logged-in-as {
+            margin: 0;
+            
+            a {
+                color: var(--mainColor);
+                transition: color 0.3s;
+
+                &:hover {
+                    color: var(--mainColor);
+                }
+            }
+        }
+
+        .required {
+            color: $color-red;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        &__form {
+            
+            .comment-form-author {
+                flex-basis: 100%;
+            }
+
+            .comment-form-email {
+                flex-basis: 100%;
+            }
+
+            .comment-form-url {
+                flex-basis: 100%;
+            }
+
+            .comment-form-comment {
+                flex-basis: 100%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 20px;
+
+        &__title {
+
+            small {
+
+                a {
+                    background-color: transparent;
+                    border: none;
+                    color: var(--mainColor);
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

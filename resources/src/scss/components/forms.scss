@@ -1,0 +1,89 @@
+.ktlcForm {
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="password"],
+    input[type="search"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="range"],
+    input[type="date"],
+    input[type="month"],
+    input[type="week"],
+    input[type="time"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="color"] {
+        border: none;
+        border-bottom: 2px solid #eee;
+        color: #555;
+        height: 50px;
+        padding: 10px;
+        transition: color 0.3s, border-color 0.3s;
+
+        &:focus {
+            border-color: var(--mainColor);
+            color: #000;
+        }
+    }
+
+    textarea {
+        border: none;
+        border-bottom: 2px solid #eee;
+        color: #555;
+        padding: 10px;
+        resize: none;
+        transition: color 0.3s, border-color 0.3s;
+
+        &:focus {
+            border-color: var(--mainColor);
+            color: #000;
+        }
+
+        &.wpforms-error {
+            border: none;
+            border-bottom: 2px solid #cc0000;
+        }
+    }
+
+    button,
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        @include flex(row, center, center, wrap);
+
+        backdrop-filter: blur(10px);
+        background-color: var(--mainColor);
+        border: 2px solid var(--mainColor);
+        border-radius: 30px;
+        color: #fff;
+        cursor: pointer;
+        height: 60px;
+        margin: 0 auto;
+        min-width: 200px;
+        padding: 0 40px;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: transparent;
+            border: 2px solid var(--mainColor);
+            box-shadow: 0 10px 30px -10px var(--mainColor);
+            color: var(--mainColor);
+            transform: translate(0, -4px);
+        }
+
+        &:active {
+            background-color: var(--mainColor);
+            border: 2px solid var(--mainColor);
+            box-shadow: 0 4px 20px -4px var(--mainColor);
+            color: #fff;
+            transform: translate(0, -2px);
+            transition: all 0.1s;
+        }
+
+        @media screen and (max-width: 1440px) {
+            height: 50px;
+        }
+    }
+}

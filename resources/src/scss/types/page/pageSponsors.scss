@@ -1,0 +1,253 @@
+.pageSponsors {
+
+    &__header {
+        @include flex(row, center, center, wrap);
+
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+        position: relative;
+
+        &::before {
+            background-color: rgb(0 0 0 / 30%);
+            bottom: 0;
+            content: '';
+            display: block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 0;
+        }
+    }
+
+    &__headerInner {
+        text-align: center;
+    }
+
+    &__title {
+        color: #fff;
+        margin: 0 0 40px 0;
+        position: relative;
+
+        &::after {
+            background-color: var(--mainColor);
+            content: '';
+            display: block;
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            top: calc(100% + 40px);
+            transform: translate(-50%, 0);
+            width: 200px;
+            z-index: 0;
+        }
+    }
+
+    &__sponsors {
+        padding: 60px 0;
+    }
+
+    &__sponsorsInner {
+        @include flex(row, flex-start, space-between, wrap, 60px 0);
+    }
+
+    &__sponsor {
+        @include flex(row, center, flex-start, wrap, 20px 0);
+
+        align-content: space-between;
+        background: linear-gradient(145deg, #efefef, #ffffff);
+        border-radius: 30px;
+        box-shadow: 20px 20px 40px #efefef,
+            -20px -20px 40px #ffffff;
+        flex-basis: 31%;
+        padding: 40px;
+    }
+
+    &__sponsorImageLink {
+        @include flex(row, center, center, wrap);
+
+        height: 100px;
+        flex-basis: 100%;
+    }
+
+    &__sponsorImage {
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s;
+        width: 100%;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: scale(1);
+            transition: transform 0.1s;
+        }
+    }
+
+    &__sponsorTitle {
+        font-weight: 500;
+        flex-basis: calc(100% - 150px);
+        margin: 0;
+    }
+
+    &__sponsorLevel {
+        @include flex(row, center, flex-end, wrap, 20px);
+
+        flex-basis: 140px;
+    }
+
+    &__sponsorLevelImage {
+        width: 50px;
+    }
+
+    &__sponsorLevelTitle {
+        color: var(--mainColor);
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    &__sponsorTagline {
+        border-left: 2px solid var(--mainColor);
+        flex-basis: 100%;
+        font-weight: 500;
+        padding: 0 0 0 10px;
+    }
+
+    &__sponsorDescription {
+        flex-basis: 100%;
+        height: 100px;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+        transition: height 0.3s;
+
+        p {
+            margin: 0 0 10px 0;
+        }
+    }
+
+    &__sponsorDescButton {
+        @include flex(row, center, center, wrap, 10px);
+
+        align-content: flex-end;
+        background: linear-gradient(to bottom, transparent 0%, #fafafa 70%);
+        border: none;
+        color: var(--mainColor);
+        cursor: pointer;
+        height: 100px;
+        left: 0;
+        margin: 0;
+        padding: 0 0 10px 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+
+        &:hover {
+
+            svg {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__sponsorDescButtonIcon {
+        height: 20px;
+        width: 20px;
+        transition: transform 0.3s;
+    }
+
+    &__sponsorLink {
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 1600px) {
+
+        &__sponsorsInner {
+            gap: 40px 0;
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+
+        &__sponsorTitle {
+            flex-basis: 100%;
+            text-align: center;
+        }
+
+        &__sponsorTagline {
+            text-align: left;
+        }
+
+        &__sponsorLevel {
+            justify-content: center;
+            flex-basis: 100%;
+        }
+
+        &__sponsorDescription {
+            text-align: justify;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+
+        &__sponsorsInner {
+            gap: 20px 0;
+        }
+
+        &__sponsor {
+            flex-basis: 48%;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+
+        &__header {
+            height: auto;
+            padding: 200px 0 100px 0;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        &__title {
+            margin: 0 0 20px 0;
+
+            &::after {
+                top: calc(100% + 20px);
+            }
+        }
+
+        &__sponsor {
+            padding: 20px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+
+        &__sponsor {
+            flex-basis: 100%;
+        }
+
+        &__sponsorTitle {
+            flex-basis: calc(100% - 150px);
+            text-align: left;
+        }
+
+        &__sponsorLevel {
+            flex-basis: 140px;
+        }
+
+        &__sponsorLevelImage {
+            width: 40px;
+        }
+    }
+}

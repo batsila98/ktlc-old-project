@@ -1,0 +1,96 @@
+.sponsorsList {
+    padding: 60px 0;
+
+    &__inner {
+        @include flex(row, center, space-between, wrap);
+    }
+
+    &__title {
+        color: #555;
+        font-size: calc(32px + (46 - 32) * ((100vw - 320px) / (1920 - 320)));
+        font-weight: 500;
+        margin: 0 0 40px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    &__link {
+        @include flex(row, center, center, wrap);
+
+        background: linear-gradient(145deg, #efefef, #ffffff);
+        border-radius: 30px;
+        box-shadow:  20px 20px 40px #efefef,
+             -20px -20px 40px #ffffff;
+        flex-basis: 18%;
+        height: 200px;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+
+        &:hover {
+            box-shadow: 0 40px 60px -30px rgb(233 30 99 / 20%);
+            transform: translate(0, -10px);
+        }
+
+        &:active {
+            box-shadow: 0 30px 50px -30px rgb(233 30 99 / 40%);
+            transform: translate(0, -4px);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+    }
+
+    &__image {
+        height: 100%;
+        object-fit: contain;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 1440px) {
+        padding: 40px 0;
+    }
+
+    @media screen and (max-width: 1200px) {
+        
+        &__link {
+            height: 160px;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        
+        &__link {
+            height: 120px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        
+        &__inner {
+            gap: 18px;
+        }
+        
+        &__link {
+            flex-basis: calc(33.3% - 12px);
+            height: 160px;
+            padding: 20px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        
+        &__inner {
+            gap: 20px;
+        }
+        
+        &__link {
+            flex-basis: calc(50% - 10px);
+            height: 200px;
+        }
+    }
+
+    @media screen and (max-width: 475px) {
+        
+        &__link {
+            height: 160px;
+        }
+    }
+}

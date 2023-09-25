@@ -1,0 +1,119 @@
+.pageIndex {
+
+    &__header {
+        @include flex(row, center, center, wrap);
+
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+        position: relative;
+
+        &::before {
+            background-color: rgb(0 0 0 / 30%);
+            bottom: 0;
+            content: '';
+            display: block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 0;
+        }
+    }
+
+    &__headerInner {
+        text-align: center;
+        position: relative;
+    }
+
+    &__title {
+        color: #fff;
+        margin: 0 0 40px 0;
+        position: relative;
+
+        &::after {
+            background-color: var(--mainColor);
+            content: '';
+            display: block;
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            top: calc(100% + 40px);
+            transform: translate(-50%, 0);
+            width: 200px;
+            z-index: 0;
+        }
+    }
+
+    &__content {
+        padding: 60px 0;
+    }
+
+    &__contentInner {
+        @include flex(row, stretch, space-between, wrap);
+    }
+
+    &__posts {
+        @include flex(column, flex-start, flex-start, nowrap, 100px);
+
+        flex-basis: calc(100% - 410px);
+    }
+
+    &__sidebar {
+        position: relative;
+        flex-basis: 350px;
+    }
+
+    @media screen and (max-width: 992px) {
+        
+        &__header {
+            height: auto;
+            padding: 200px 0 100px 0;
+        }
+
+        &__posts {
+            flex-basis: calc(100% - 320px);
+        }
+
+        &__sidebar {
+            flex-basis: 280px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        
+        &__title {
+            margin: 0 0 20px 0;
+
+            &::after {
+                top: calc(100% + 20px);
+            }
+        }
+
+        &__posts {
+            flex-basis: calc(100% - 260px);
+        }
+
+        &__sidebar {
+            flex-basis: 240px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+
+        &__contentInner {
+            gap: 40px;
+        }
+
+        &__posts {
+            flex-basis: 100%;
+        }
+
+        &__sidebar {
+            flex-basis: 100%;
+        }
+    }
+}

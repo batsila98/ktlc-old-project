@@ -1,0 +1,338 @@
+.footer {
+    background-color: #323437;
+    padding: 60px 0 20px 0;
+
+    &__inner {
+        @include flex(row, stretch, space-between, wrap);
+    }
+
+    &__title {
+        color: #fff;
+        font-weight: 500;
+        margin: 0 0 40px 0;
+        position: relative;
+
+        &::after {
+            background-color: var(--mainColor);
+            content: '';
+            display: block;
+            height: 2px;
+            left: 0;
+            position: absolute;
+            top: calc(100% + 10px);
+            width: 100px;
+        }
+    }
+
+    &__left {
+        @include flex(column, flex-start, flex-start, nowrap, 60px);
+
+        flex-basis: 34%;
+    }
+
+    // &__logo {}
+
+    // &__logoTitle {}
+
+    &__logoImage {
+        height: auto;
+        width: 240px;
+    }
+
+    &__contacts {
+        @include flex(column, flex-start, flex-start, nowrap, 30px);
+    }
+
+    &__contactsTitle {
+        margin: 0 0 10px 0;
+    }
+
+    &__emails {
+        @include flex(column, flex-start, flex-start, nowrap, 10px);
+    }
+
+    &__email {
+        @include flex(row, center, flex-start, wrap, 10px);
+
+        color: #fff;
+        transition: color 0.3s, gap 0.3s;
+
+        &:hover {
+            color: var(--mainColor);
+            gap: 20px;
+        }
+    }
+
+    &__emailIcon {
+        height: 20px;
+        width: 20px;
+    }
+
+    &__phones {
+        @include flex(column, flex-start, flex-start, nowrap, 10px);
+    }
+
+    &__phone {
+        @include flex(row, center, flex-start, wrap, 10px);
+
+        color: #fff;
+        transition: color 0.3s, gap 0.3s;
+
+        &:hover {
+            color: var(--mainColor);
+            gap: 20px;
+        }
+    }
+
+    &__phoneIcon {
+        height: 20px;
+        width: 20px;
+    }
+
+    &__socials {
+        @include flex(row, center, flex-start, nowrap, 40px);
+
+        margin: 20px 0 0 0;
+    }
+
+    &__social {
+        @include flex(row, center, center, wrap);
+
+        height: 40px;
+        transition: border-color 0.3s;
+        width: 40px;
+
+        &:hover {
+            border-color: var(--mainColor);
+
+            img {
+                transform: translate(0, -2px) scale(1.2);
+            }
+        }
+
+        &:active {
+            img {
+                transform: translate(0, 0) scale(1.1);
+            }
+        }
+    }
+
+    &__socialImage {
+        height: 20px;
+        transition: transform 0.3s;
+    }
+
+    &__right {
+        flex-basis: 60%;
+    }
+
+    &__organizers {
+        @include flex(row, stretch, space-between, wrap);
+    }
+
+    &__organizersLeft {
+        @include flex(row, flex-start, flex-start, wrap, 40px);
+
+        flex-basis: 40%;
+    }
+
+    &__organizersTitle {
+        margin: 0;
+    }
+
+    &__organizer {
+        @include flex(row, center, flex-start, wrap);
+
+        height: 140px;
+        transition: transform 0.3s;
+        width: 100%;
+
+        &:active {
+            transition: transform 0.1s;
+        }
+    }
+
+    &__organizerImage {
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s;
+        width: 100%;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    &__organizersRight {
+        @include flex(row, flex-start, flex-start, wrap, 40px);
+
+        flex-basis: 50%;
+    }
+
+    &__organizerData {
+        @include flex(row, center, flex-start, wrap);
+
+        color: #fff;
+        height: 140px;
+        line-height: 200%;
+        margin: 0;
+        width: 100%;
+    }
+
+    &__bottom {
+        @include flex(row, stretch, space-between, wrap);
+
+        border-top: 1px solid #cdcdcd;
+        margin: 40px 0 0 0;
+        padding: 20px 0 0 0;
+        width: 100%;
+    }
+
+    &__menu {
+        @include flex(row, center, flex-start, wrap, 60px);
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__menuItem {
+        @include flex(row, center, flex-start, nowrap);
+    }
+
+    &__menuItemLink {
+        @include flex(row, center, flex-start, nowrap, 10px);
+
+        color: #fff;
+        padding: 0 10px 0 0;
+        transition: gap 0.3s, color 0.3s, padding 0.3s;
+
+        &:hover {
+            color: var(--mainColor);
+            gap: 20px;
+            padding: 0;
+        }
+    }
+
+    &__copyright {
+        color: #fff;
+
+        a {
+            color: var(--mainColor);
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+
+        &__logoImage {
+            width: 200px;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+
+        &__inner {
+            gap: 40px;
+        }
+
+        &__left {
+            @include flex(row, stretch, flex-start, wrap, 40px);
+            flex-basis: 100%;
+        }
+
+        &__logo {
+            flex-basis: calc(40% - 20px);
+        }
+
+        &__contacts {
+            flex-basis: calc(60% - 20px);
+        }
+
+        &__socials {
+            gap: 20px;
+            margin: 0;
+        }
+
+        &__right {
+            flex-basis: 100%;
+        }
+
+        &__organizers {
+            @include flex(row, stretch, space-between, wrap, 40px);
+        }
+
+        &__organizersLeft {
+            flex-basis: calc(40% - 20px);
+        }
+
+        &__organizersRight {
+            flex-basis: calc(60% - 20px);
+        }
+
+        &__bottom {
+            margin: 0;
+        }
+
+        &__menu {
+            gap: 20px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        &__bottom {
+            gap: 20px;
+        }
+
+        &__menu {
+            flex-basis: 100%;
+        }
+
+        &__copyright {
+            flex-basis: 100%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+
+        &__socials {
+            gap: 10px;
+        }
+    }
+
+    @media screen and (max-width: 475px) {
+
+        &__logo {
+            flex-basis: 100%;
+        }
+
+        &__contacts {
+            flex-basis: 100%;
+        }
+
+        &__socials {
+            justify-content: space-between;
+            gap: 0;
+            width: 100%;
+        }
+
+        &__organizersLeft {
+            flex-basis: 100%;
+            gap: 40px;
+        }
+
+        &__organizer {
+            height: 100px;
+            justify-content: flex-start;
+        }
+
+        &__organizersRight {
+            flex-basis: 100%;
+            gap: 40px;
+        }
+
+        &__organizerData {
+            height: auto;
+        }
+    }
+}

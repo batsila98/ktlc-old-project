@@ -1,0 +1,43 @@
+.subscribe {
+    background-color: var(--mainColor);
+    padding: 0 0 60px 0;
+
+    &__inner {
+        color: #fff;
+        text-align: center;
+    }
+
+    &__title {
+        color: #fff;
+        font-size: calc(32px + (46 - 32) * ((100vw - 320px) / (1920 - 320)));
+        font-weight: 500;
+        margin: 0 0 40px 0;
+    }
+
+    &__subtitle {
+        color: #fff;
+        font-size: 20px;
+        margin: 0;
+    }
+
+    &__content {
+        margin: 40px 0 0 0;
+    }
+
+    // &__iframe {}
+
+    @media screen and (max-width: 1440px) {
+        padding: 0 0 40px 0;
+
+        &__subtitle {
+            font-size: 16px;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        &__title {
+            font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1920 - 320)));
+            margin: 0 0 20px 0;
+        }
+    }
+}

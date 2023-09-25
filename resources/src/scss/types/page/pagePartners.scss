@@ -1,0 +1,200 @@
+.pagePartners {
+
+    &__header {
+        @include flex(row, center, center, wrap);
+
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+        position: relative;
+
+        &::before {
+            background-color: rgb(0 0 0 / 30%);
+            bottom: 0;
+            content: '';
+            display: block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 0;
+        }
+    }
+
+    &__headerInner {
+        text-align: center;
+    }
+
+    &__title {
+        color: #fff;
+        margin: 0 0 40px 0;
+        position: relative;
+
+        &::after {
+            background-color: var(--mainColor);
+            content: '';
+            display: block;
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            top: calc(100% + 40px);
+            transform: translate(-50%, 0);
+            width: 200px;
+            z-index: 0;
+        }
+    }
+
+    &__partners {
+        padding: 60px 0;
+    }
+
+    &__partnersInner {
+        @include flex(row, flex-start, space-between, wrap, 60px 0);
+    }
+
+    &__partner {
+        @include flex(row, center, flex-start, wrap, 20px 0);
+
+        align-content: flex-start;
+        background: linear-gradient(145deg, #efefef, #ffffff);
+        border-radius: 30px;
+        box-shadow:  20px 20px 40px #efefef,
+             -20px -20px 40px #ffffff;
+        flex-basis: 31%;
+        padding: 40px;
+    }
+
+    &__partnerImageLink {
+        @include flex(row, center, center, wrap);
+
+        height: 100px;
+        flex-basis: 100%;
+    }
+
+    &__partnerImage {
+        height: 100%;
+        object-fit: contain;
+        width: 100%;
+    }
+
+    &__partnerTitle {
+        font-weight: 500;
+        flex-basis: 60%;
+        margin: 0;
+    }
+
+    &__partnerTagline {
+        border-left: 2px solid var(--mainColor);
+        flex-basis: 100%;
+        font-weight: 500;
+        padding: 0 0 0 10px;
+    }
+
+    &__partnerDescription {
+        flex-basis: 100%;
+        height: 100px;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+        transition: height 0.3s;
+
+        p {
+            margin: 0 0 10px 0;
+        }
+    }
+
+    &__partnerDescButton {
+        @include flex(row, center, center, wrap, 10px);
+
+        align-content: flex-end;
+        background: linear-gradient(to bottom, transparent 0%, #fafafa 70%);
+        border: none;
+        color: var(--mainColor);
+        cursor: pointer;
+        height: 100px;
+        left: 0;
+        margin: 0;
+        padding: 0 0 10px 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+
+        &:hover {
+
+            svg {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__partnerDescButtonIcon {
+        height: 20px;
+        width: 20px;
+        transition: transform 0.3s;
+    }
+
+    &__partnerLink {
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 1600px) {
+
+        &__partnersInner {
+            gap: 40px 0;
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+
+        &__partnerDescription {
+            text-align: justify;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+
+        &__partnersInner {
+            gap: 20px 0;
+        }
+
+        &__partner {
+            flex-basis: 48%;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        
+        &__header {
+            height: auto;
+            padding: 200px 0 100px 0;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        
+        &__title {
+            margin: 0 0 20px 0;
+
+            &::after {
+                top: calc(100% + 20px);
+            }
+        }
+
+        &__partner {
+            padding: 20px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+
+        &__partner {
+            flex-basis: 100%;
+        }
+    }
+}

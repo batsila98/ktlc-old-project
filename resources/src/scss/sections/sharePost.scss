@@ -1,0 +1,32 @@
+.sharePost {
+    @include flex(row, center, flex-start, wrap, 30px);
+
+    &__button {
+        @include flex(row, center, center, wrap);
+
+        background-color: #cdcdcd;
+        border-radius: 50%;
+        box-shadow: 0 6px 30px -6px rgb(0 0 0 / 10%);
+        color: #fff;
+        height: 50px;
+        width: 50px;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &_facebook {
+            background-color: #3b5998;
+        }
+
+        &_twitter {
+            background-color: #55acee;
+        }
+
+        svg {
+            height: 20px;
+            width: 20px;
+        }
+    }
+}

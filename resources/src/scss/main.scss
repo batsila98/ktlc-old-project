@@ -1,0 +1,45 @@
+// import mixins
+@import "mixins/flex";
+
+// import components
+@import "components/font";
+@import "components/colors";
+@import "components/buttons";
+@import "components/forms";
+
+// plugins fixes
+@import "plugins/wpforms";
+
+// import common styles
+@import "common.scss";
+
+// import sections
+@import "sections/about";
+@import "sections/bannerHome";
+@import "sections/commentsArea";
+@import "sections/commentForm";
+@import "sections/facebookFeed";
+@import "sections/footer";
+@import "sections/header";
+@import "sections/ribbon";
+@import "sections/sectionAboutTeam";
+@import "sections/sectionBlog";
+@import "sections/sharePost";
+@import "sections/sidebar";
+@import "sections/sponsorsCarousel";
+@import "sections/sponsorsList";
+@import "sections/subscribe";
+@import "sections/testimonials";
+
+// import page type style
+@import "types/page/pageIndex";
+@import "types/page/pagePartners";
+@import "types/page/pageSingle";
+@import "types/page/pageSpeakers";
+@import "types/page/pageSponsors";
+@import "types/page/simplePage";
+
+// import post type style
+@import "types/post/contentExcerpt";
+@import "types/post/contentPost";
+

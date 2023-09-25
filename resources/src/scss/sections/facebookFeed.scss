@@ -1,0 +1,51 @@
+.facebookFeed {
+    padding: 0 0 60px 0;
+
+    &__inner {
+        text-align: center;
+    }
+
+    &__title {
+        color: #555;
+        font-size: calc(32px + (46 - 32) * ((100vw - 320px) / (1920 - 320)));
+        font-weight: 500;
+        margin: 0 0 40px 0;
+        text-align: center;
+    }
+
+    &__content {
+        @include flex(row, center, center, wrap);
+
+        .blog_style_objects_conteiner_1_0 {
+            @include flex(row, center, center, wrap);
+
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 30px 100px - 30px rgb(0 0 0 / 10%);
+            width: 800px;
+            padding: 40px;
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+        padding: 0 0 40px 0;
+    }
+
+    @media screen and (max-width: 992px) {
+        
+        &__title {
+            font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1920 - 320)));
+            margin: 0 0 20px 0;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        &__content {
+
+            .blog_style_objects_conteiner_1_0 {
+                padding: 20px;
+            }
+        }
+    }
+}

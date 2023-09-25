@@ -1,0 +1,208 @@
+.contentExcerpt {
+    @include flex(row, flex-start, flex-start, wrap, 20px);
+
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 40px;
+    position: relative;
+    transition: box-shadow 0.3s;
+
+    &:not(:last-child)::after {
+        content: '';
+        background-color: rgb(249 191 60 / 50%);
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        top: calc(100% + 50px);
+        transform: translate(-50%, 0);
+        width: 500px;
+    }
+
+    &:hover {
+        box-shadow: 0 20px 60px -20px rgb(0 0 0 / 20%);
+    }
+
+    &__header {
+        @include flex(row, flex-start, flex-start, wrap, 20px);
+
+        width: 100%;
+    }
+
+    &__ImageLink {
+        @include flex(row, center, center, wrap);
+
+        border-radius: 30px;
+        height: 500px;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    &__Image {
+        border-radius: 30px;
+        box-shadow: 0 30px 60px -20px rgb(0 0 0 / 20%);
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+        transition: transform 0.5s, filter 0.5s;
+
+        &:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1) contrast(1.1) saturate(1.1);
+        }
+    }
+
+    &__title {
+        font-size: calc(20px + (28 - 20) * ((100vw - 320px) / (1920 - 320)));
+        margin: 0;
+        width: 100%;
+    }
+
+    &__titleLink {
+        color: $color-grey;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #333;
+        }
+    }
+
+    &__content {
+        @include flex(row, center, flex-start, wrap);
+
+        width: 100%;
+    }
+
+    // &__categories {}
+
+    &__category {
+        @include flex(row, center, flex-start, nowrap, 10px);
+
+        color: $color-grey;
+        text-transform: uppercase;
+        transition: gap 0.3s, color 0.3s;
+
+        &:hover {
+            gap: 20px;
+            color: var(--mainColor);
+        }
+    }
+
+    // &__categoryIcon {}
+
+    &__excerpt {
+        width: 100%;
+    }
+
+    &__postMeta {
+        @include flex(row, center, flex-end, wrap);
+
+        width: 100%;
+    }
+
+    &__postButton {
+        @include flex(row, center, center, wrap);
+        
+        background-color: var(--mainColor);
+        border-radius: 50%;
+        bottom: 70px;
+        height: 70px;
+        left: 70px;
+        opacity: 0;
+        position: absolute;
+        width: 70px;
+        z-index: 0;
+        transition: opacity 0.3s, bottom 0.3s, box-shadow 0.3s;
+
+        &:hover {
+            box-shadow: 0 4px 20px 0 rgb(0 0 0 / 10%);
+        }
+
+        &_visible {
+            bottom: -30px;
+            opacity: 1;
+            transition: opacity 0.3s, bottom 0.3s, box-shadow 0.3s;
+            visibility: visible;
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+        
+        &__ImageLink {
+            height: 400px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        padding: 0;
+
+        &:not(:last-child)::after {
+            width: 70%;
+        }
+
+        &:hover {
+            box-shadow: none;
+        }
+        
+        &__ImageLink {
+            box-shadow: 0 20px 60px -20px rgb(0 0 0 / 20%);
+            height: 340px;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        
+        &__ImageLink {
+            box-shadow: 0 20px 60px -20px rgb(0 0 0 / 20%);
+            height: 300px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        
+        &__ImageLink {
+            height: 260px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        
+        &__ImageLink {
+            border-radius: 20px;
+            height: 300px;
+        }
+
+        &__Image {
+            border-radius: 20px;
+        }
+    }
+
+    @media screen and (max-width: 475px) {
+        
+        &__ImageLink {
+            height: 240px;
+        }
+    }
+}
+
+.postMeta {
+
+    // &__author {}
+
+    &__authorLink {
+        color: var(--mainColor);
+        font-weight: 500;
+    }
+
+    &__dateLink {
+        color: $color-grey;
+    }
+
+    &__date {
+        
+    }
+
+    &__updatedDate {
+        display: none;
+    }
+}

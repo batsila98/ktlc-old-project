@@ -1,0 +1,76 @@
+.bannerHome {
+    @include flex(row, center, flex-start, nowrap);
+
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    min-height: 800px;
+    height: 100vh;
+    position: relative;
+
+    &::before {
+        background-color: rgb(0 0 0 / 40%);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+    }
+
+    &__inner {
+        @include flex(row, flex-start, flex-start, wrap, 20px);
+
+        position: relative;
+        z-index: 10;
+    }
+
+    &__title {
+        font-size: calc(36px + (60 - 36) * ((100vw - 320px) / (1920 - 320)));
+        font-weight: 500;
+        margin: 0;
+        width: 100%;
+    }
+
+    &__subtitle {
+        font-weight: 400;
+        margin: 0;
+        width: 100%;
+    }
+
+    &__date {
+        margin: 0 0 40px 0;
+        width: 100%;
+    }
+
+    &__button {
+        
+        &.buttonMain {
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    &__wave {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        z-index: 0;
+    }
+
+    @media screen and (max-width: 992px) {
+
+        &__title {
+            font-size: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320)));
+        }
+    }
+}

@@ -1,0 +1,501 @@
+.header {
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px 0 rgb(0 0 0 / 10%);
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &_scrolling {
+        backdrop-filter: none;
+        background-color: #fff;
+        box-shadow: 0 0 60px 0 rgb(0 0 0 / 10%);
+    }
+
+    &__top {
+        border-bottom: 1px solid #cdcdcd;
+        padding: 10px 0;
+    }
+
+    &__topInner {
+        white-space: normal;
+        word-break: break-word;
+
+        a {
+            color: #fff;
+            width: 100%;
+        }
+    }
+
+    &__bottom {
+        padding: 10px 0;
+    }
+
+    &__bottomInner {
+        @include flex(row, center, space-between, wrap);
+    }
+
+    .custom-logo {
+        height: 80px;
+        width: auto;
+    }
+
+    .custom-logo-link {
+        @include flex(row, center, center, nowrap);
+    }
+
+    a.custom-logo-link {
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(1);
+            transition: transform 0.1s;
+        }
+    }
+
+    &__nav {
+        @include flex(row, center, flex-end, wrap, 60px);
+
+        margin: 0 0 0 auto;
+    }
+
+    &__navButton {
+        @include flex(row, center, center, wrap);
+
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: none;
+        height: 40px;
+        width: 40px;
+    }
+
+    &__navButtonIcon {
+        height: 100%;
+        width: 100%;
+    }
+
+    &__navButtonClose {
+        @include flex(row, center, center, wrap);
+
+        background-color: var(--mainColor);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        display: none;
+        height: 40px;
+        right: 40px;
+        padding: 10px;
+        position: absolute;
+        top: 20px;
+        width: 40px;
+    }
+
+    &__navButtonCloseIcon {
+        height: 100%;
+        width: 100%;
+    }
+
+    &__menu {
+        @include flex(row, center, flex-end, wrap, 60px);
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__menuItem {
+        @include flex(row, center, center, nowrap, 10px);
+
+        height: 80px;
+        position: relative;
+
+        &:hover {
+            & > .header__menuItemButton svg {
+                transform: rotate(180deg);
+            }
+
+            & > .header__submenu {
+                display: flex;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__menuItemLink {
+        color: #fff;
+        position: relative;
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &::after {
+            background-color: var(--mainColor);
+            border-radius: 2px;
+            bottom: -4px;
+            content: '';
+            display: block;
+            height: 4px;
+            left: 0;
+            position: absolute;
+            transition: all 0.3s;
+            width: 0px;
+        }
+    }
+
+    &__menuItemButton {
+        @include flex(row, center, center, wrap);
+
+        backdrop-filter: unset;
+        background-color: transparent;
+        border-radius: none;
+        border: none;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        width: auto;
+
+        &:hover {
+            border: none;
+            transform: none;
+        }
+
+        &:active {
+            border: none;
+            background-color: transparent;
+        }
+    }
+
+    &__menuItemArrow {
+        transition: transform 0.3s;
+
+        &_rotated {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__submenu {
+        @include flex(column, flex-start, flex-start, nowrap);
+
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px 0 rgb(0 0 0 / 10%);
+        left: 50%;
+        list-style: none;
+        margin: 0;
+        min-width: 240px;
+        opacity: 0;
+        padding: 20px 0;
+        position: absolute;
+        top: 100%;
+        transform: translate(-50%, 0);
+        transition: opacity 0.3s;
+        visibility: hidden;
+        white-space: nowrap;
+        z-index: 90;
+
+        &_level2 {
+            left: unset;
+            right: 100%;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        &_opened {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__submenuItem {
+        @include flex(row, center, flex-start, nowrap, 10px);
+
+        padding: 10px 40px;
+        position: relative;
+
+        &:hover {
+            & > .header__submenu {
+                display: flex;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__submenuItemLink {
+        color: $color-grey;
+        padding: 0 24px 0 0;
+        position: relative;
+        transition: padding 0.3s;
+
+        &:hover {
+            padding: 0 0 0 24px;
+
+            &::after {
+                width: 16px;
+            }
+        }
+
+        &::after {
+            background-color: var(--mainColor);
+            border-radius: 2px;
+            content: '';
+            display: block;
+            height: 4px;
+            left: 0;
+            position: absolute;
+            top: 50%;
+            transition: width 0.3s;
+            transform: translate(0, -50%);
+            width: 0px;
+        }
+    }
+
+    &__submenuItemButton {
+        @include flex(row, center, center, wrap);
+
+        backdrop-filter: unset;
+        background-color: transparent;
+        border-radius: none;
+        border: none;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        width: auto;
+
+        &:hover {
+            border: none;
+            transform: none;
+        }
+
+        &:active {
+            border: none;
+            background-color: transparent;
+        }
+    }
+
+    &__anotherConferenceLink {
+        @include flex(row, center, center, wrap, 10px);
+
+        color: #fff;
+        margin: 0;
+        text-transform: uppercase;
+        transition: color 0.3s;
+
+        &:hover {
+            color: var(--mainColor) !important;
+
+            .header__anotherConferenceLinkImage {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__anotherConferenceLinkImage {
+        border-radius: 4px;
+        box-shadow: 0 4px 20px 0 rgb(0 0 0 / 10%);
+        height: 24px;
+        object-fit: cover;
+        transition: transform 0.3s;
+        width: 40px;
+    }
+
+    @media screen and (max-width: 1600px) {
+
+        &__nav {
+            gap: 40px;
+        }
+        
+        &__menu {
+            gap: 40px;
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+
+        .custom-logo {
+            height: 60px;
+        }
+        
+        &__menu {
+            gap: 20px;
+        }
+        
+        &__submenuItem {
+            padding: 10px 20px;
+        }
+    }
+    
+    @media screen and (max-width: 1200px) {
+        backdrop-filter: none;
+        background-color: rgb(0 0 0 / 40%);
+
+        &_scrolling {
+            background-color: #fff;
+        }
+
+        &__nav {
+            @include flex(row, flex-start, flex-start, wrap, 0);
+
+            align-content: flex-start;
+            backdrop-filter: blur(10px);
+            bottom: 0;
+            display: none;
+            gap: 0;
+            height: 100%;
+            justify-content: flex-start;
+            left: 0;
+            margin: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+
+            &_opened {
+                display: flex;
+            }
+        }
+
+        &__navButton {
+            display: flex;
+        }
+        
+        &__navButtonClose {
+            display: flex;
+        }
+
+        &__menu {
+            @include flex(column, flex-start, flex-start, nowrap, 20px);
+
+            // background-color: var(--mainColor);
+            background-color: $color-grey;
+            box-shadow: 30px 0 60px 0 rgb(0 0 0 / 20%);
+            height: calc(100% - 64px);
+            overflow: auto;
+            padding: 20px 40px;
+            width: 400px;
+        }
+
+        &__menuItem {
+            @include flex(row, center, space-between, wrap);
+            height: auto;
+            width: 100%;
+
+            &:hover {
+                & > .header__submenu {
+                    display: unset;
+                    opacity: unset;
+                    visibility: unset;
+                }
+            }
+        }
+
+        &__menuItemLink {
+            color: #fff !important;
+            flex-basis: calc(100% - 30px);
+        }
+
+        &__submenu {
+            border-radius: 10px;
+            box-shadow: none;
+            display: none;
+            margin: 0;
+            padding: 0;
+            position: static;
+            transform: none;
+            white-space: unset;
+            width: 100%;
+
+            &_level2 {
+                box-shadow: none;
+                left: unset;
+                position: static;
+                right: unset;
+                top: unset;
+                transform: none;
+            }
+        }
+
+        &__submenuItem {
+            @include flex(row, center, space-between, wrap);
+            
+            width: 100%;
+
+            &:hover {
+                & > .header__submenu {
+                    display: unset;
+                    opacity: unset;
+                    visibility: unset;
+                }
+            }
+        }
+
+        &__submenuItemLink {
+            flex-basis: calc(100% - 30px);
+            padding: 0;
+        }
+
+        &__submenuItemButton {
+            width: 20px;
+
+            svg {
+                transform: rotate(90deg);
+            }
+        }
+
+        &__anotherConferenceLink {
+            background-color: var(--mainColor);
+            height: 64px;
+            margin: 0;
+            width: 100%;
+
+            &:hover, &:active, &:focus {
+                color: #fff !important;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        &__navButtonClose {
+            right: 20px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+
+        .custom-logo {
+            height: 50px;
+        }
+
+        &__menu {
+            padding: 20px;
+            width: calc(100% - 80px);
+        }
+
+        &__submenuItem {
+            padding: 10px;
+        }
+
+        &__anotherConferenceLink {
+            width: calc(100% - 80px);
+        }
+    }
+
+    @media screen and (max-width: 475px) {
+
+        .custom-logo {
+            height: 50px;
+        }
+    }
+}

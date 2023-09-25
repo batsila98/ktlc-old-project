@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+
+# log files
+*.log
+
+# vendor
+/vendor/
+
+# ignore node dependency directories
+node_modules/
